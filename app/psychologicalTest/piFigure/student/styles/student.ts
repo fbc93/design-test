@@ -210,7 +210,7 @@ export const Progressbar = styled.div<{ $bgColor: string }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8rem;
+  gap: 7rem;
   box-sizing: border-box;
 
   span {
@@ -277,4 +277,207 @@ export const RangeIndicatorValue = styled.div`
   line-height: 4.4rem;
   letter-spacing: -1px;
   font-weight: 500;
+`;
+
+/* 성인 TEST + BISS */
+export const SituationText = styled.div`
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 3.4rem;
+  letter-spacing: 0.374px;
+  padding: 6.4rem 8rem;
+  background-color: var(--white);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.16);
+  margin-bottom: 4rem;
+`;
+
+export const QuestionSection = styled.fieldset`
+  padding: calc(0.01em + 4rem) 0 4rem 0;
+  background-color: var(--white);
+  margin: 0 0 4rem 0;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &:nth-child(4) {
+    margin-bottom: 0;
+  }
+
+  & > input[type="range"] {
+    display: inline-block;
+    width: 100%;
+  }
+`;
+
+export const QuestionTitle = styled.legend`
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  letter-spacing: 0.374px;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 2.4rem;
+`;
+
+export const RadioBtnItem = styled.label`
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  border-radius: 10rem;
+  background-color: var(--gray-01);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: rgba(26, 52, 76, 0.1);
+  }
+
+  & > input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  & > span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    line-height: 3.2rem;
+    font-size: 1.8rem;
+    letter-spacing: -0.198px;
+    font-weight: 200;
+  }
+`;
+
+/* Range Input */
+export const RangeInputContainer = styled.div`
+  padding: 2.4rem 4rem;
+  width: 100%;
+  background-color: beige;
+  position: relative;
+`;
+
+export const RangeSlider = styled.div`
+  position: relative;
+  display: flex;
+  user-select: none;
+  margin: 1.2rem 0 0 0;
+
+  & > input {
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 100%;
+    height: 0.4rem;
+    border-radius: 4px;
+    background-color: var(--gray-05);
+    cursor: pointer;
+  }
+
+  & > input::-webkit-slider-thumb {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background-color: transparent;
+    -webkit-appearance: none;
+    position: relative;
+    box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
+    z-index: 300;
+  }
+`;
+
+export const SliderThumb = styled.div`
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blue-01);
+  z-index: 200;
+`;
+
+export const Tooltip = styled.div`
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .tooltip-img {
+    width: 65px;
+    height: 75px;
+    position: absolute;
+    top: -35px;
+    left: -17px;
+    background-image: url("/images/test/indicator_sad_bg.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    & > div {
+      width: 2.8rem;
+      height: 1.4rem;
+      position: absolute;
+      left: 49%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center top;
+    }
+
+    .not-sad {
+      background-image: url("/images/test/emotion_not_sad.webp");
+    }
+  }
+
+  .tooltip-value {
+    width: 100%;
+    height: 3.2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: 0.374px;
+    font-weight: 500;
+    margin-bottom: 0;
+    position: absolute;
+    top: 59px;
+    left: 0.5px;
+    color: var(--white);
+  }
+`;
+
+export const SliderProgress = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 4px;
+  background-color: var(--blue-01);
+  border-radius: 4px;
+`;
+
+export const RangeTextContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.374px;
+  font-weight: 300;
+  color: var(--gray-04);
 `;
