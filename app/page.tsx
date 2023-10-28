@@ -14,9 +14,11 @@ const Wrapper = styled.ul`
 
 export default function Home() {
   return (
-    <Wrapper>
-      <li><Link href="/psychologicalTest/piFigure/student">Pi-Figure : 학령기 테스트</Link></li>
-      <li><Link href="/psychologicalTest/piFigure/adult">Pi-Figure : 성인 테스트</Link></li>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <li><Link href="/psychologicalTest/piFigure/student">Pi-Figure : 학령기 테스트</Link></li>
+        <li><Link href="/psychologicalTest/piFigure/adult">Pi-Figure : 성인 테스트</Link></li>
+      </Wrapper>
+    </>
   )
 }
