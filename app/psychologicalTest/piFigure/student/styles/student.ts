@@ -83,7 +83,7 @@ export const RadioBtn = styled.span<{ $optionIdx: string }>`
   width: 12rem;
   height: 13.6rem;
 
-  label {
+  & > label {
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -91,6 +91,61 @@ export const RadioBtn = styled.span<{ $optionIdx: string }>`
 
     span {
       display: none;
+    }
+  }
+
+  &:nth-child(2):hover {
+    background-image: url("/images/test/opt_I_strongly_disagree.webp");
+    background-size: 64px;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    .title {
+      color: var(--black);
+    }
+  }
+
+  &:nth-child(3):hover {
+    background-image: url("/images/test/opt_I_disagree.webp");
+    background-size: 64px;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    .title {
+      color: var(--black);
+    }
+  }
+
+  &:nth-child(4):hover {
+    background-image: url("/images/test/opt_I_am_not_sure.webp");
+    background-size: 64px;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    .title {
+      color: var(--black);
+    }
+  }
+
+  &:nth-child(5):hover {
+    background-image: url("/images/test/opt_I_agree.webp");
+    background-size: 64px;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    .title {
+      color: var(--black);
+    }
+  }
+
+  &:nth-child(6):hover {
+    background-image: url("/images/test/opt_I_strongly_agree.webp");
+    background-size: 64px;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    .title {
+      color: var(--black);
     }
   }
 
