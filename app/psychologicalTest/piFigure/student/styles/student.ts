@@ -88,6 +88,10 @@ export const RadioBtn = styled.span<{ $optionIdx: string }>`
     width: 100%;
     height: 100%;
     cursor: pointer;
+
+    span {
+      display: none;
+    }
   }
 
   &:nth-child(n + 1) {
@@ -97,8 +101,38 @@ export const RadioBtn = styled.span<{ $optionIdx: string }>`
       background-size: 64px;
       background-position: center top;
       background-repeat: no-repeat;
+
+      .title {
+        color: var(--black);
+      }
     }
   }
+
+  &:nth-child(2n) {
+    label {
+      span {
+        display: block;
+      }
+    }
+  }
+`;
+
+export const RadioLabel = styled.label`
+  position: relative;
+`;
+
+export const RadioBtnTitle = styled.span`
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: var(--gray-05);
+  letter-spacing: 0.374px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const ProgressbarWrapper = styled.div<{ $bgColor: string }>`

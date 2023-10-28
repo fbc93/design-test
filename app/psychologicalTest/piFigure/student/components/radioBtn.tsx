@@ -11,7 +11,7 @@ interface IRadioBtnItem {
 export default function RadioBtnItem({ questionNumber, options, onClick }: IRadioBtnItem) {
   return (
     <S.RadioBtn $optionIdx={options.id}>
-      <label htmlFor={`q${questionNumber}_${options.id}`}>
+      <S.RadioLabel htmlFor={`q${questionNumber}_${options.id}`}>
         <input
           type="radio"
           id={`q${questionNumber}_${options.id}`}
@@ -19,8 +19,8 @@ export default function RadioBtnItem({ questionNumber, options, onClick }: IRadi
           name={`q${questionNumber}`}
           onChange={onClick}
         />
-        <span className="sr-only">{options.title}</span>
-      </label>
+        <S.RadioBtnTitle className="title">{options.title}</S.RadioBtnTitle>
+      </S.RadioLabel>
     </S.RadioBtn>
   )
 }
