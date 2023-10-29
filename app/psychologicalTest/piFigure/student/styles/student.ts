@@ -322,7 +322,7 @@ export const QuestionTitle = styled.legend`
   letter-spacing: 0.374px;
   text-align: center;
   display: inline-block;
-  margin-bottom: 2.4rem;
+  margin-bottom: 3.5rem;
 `;
 
 export const RadioBtnItem = styled.label`
@@ -391,8 +391,8 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
     background-position: center center;
     background-repeat: no-repeat;
     box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
-    width: 5rem;
-    height: 5rem;
+    width: 6.5rem;
+    height: 6.5rem;
     border-radius: 50%;
     background-color: var(--blue-01);
     bottom: 50%;
@@ -408,8 +408,8 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
     background-position: center center;
     background-repeat: no-repeat;
     box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
-    width: 5rem;
-    height: 5rem;
+    width: 6.5rem;
+    height: 6.5rem;
     border-radius: 50%;
     border: none;
   }
@@ -444,7 +444,7 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
       width: 5.5rem;
       position: absolute;
       left: calc(50% - 6rem);
-      bottom: 60px; //50px
+      bottom: 70px; //50px
       opacity: 0;
       background-image: url("/images/test/indicator_sad_bg.webp");
       background-size: contain;
@@ -470,7 +470,7 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
 
   input[type="range"]:active + .thumb {
     opacity: 1;
-    bottom: 50px;
+    bottom: 60px;
   }
 `;
 
@@ -557,7 +557,7 @@ export const Tooltip = styled.div`
     text-align: center;
     font-size: 1.4rem;
     letter-spacing: 0.374px;
-    font-weight: 500;
+    font-weight: 800;
     margin-bottom: 0;
     position: absolute;
     top: 59px;
@@ -580,7 +580,7 @@ export const RangeTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 4rem;
   width: 100%;
   font-size: 1.6rem;
   line-height: 2.4rem;

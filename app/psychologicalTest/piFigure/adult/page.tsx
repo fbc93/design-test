@@ -192,7 +192,7 @@ export default function AdultTest() {
                       const percent = (el.target.value / el.target.max) * 100;
 
                       //UI width
-                      el.target.nextSibling.nextSibling.style.cssText = `width: calc(${percent}% - 5rem)`;
+                      el.target.nextSibling.nextSibling.style.cssText = `width: calc(${percent}% - 6.5rem)`;
 
                       //UI image
                       if (el.target.value >= 1 && el.target.value <= 3) {
@@ -208,10 +208,10 @@ export default function AdultTest() {
 
                       //UI
                       if (el.target.value == 1) {
-                        el.target.nextSibling.style.cssText = `left: calc(0% - 0.3rem);`;
+                        el.target.nextSibling.style.cssText = `left: calc(0% - 0rem);`;
 
                       } else if (el.target.value == 2) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6.3rem);`;
+                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
 
                       } else if (el.target.value == 3) {
                         el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
@@ -229,13 +229,13 @@ export default function AdultTest() {
                         el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
 
                       } else if (el.target.value == 8) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
+                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
 
                       } else if (el.target.value == 9) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
+                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
 
                       } else if (el.target.value == 10) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
+                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
 
                       }
 
