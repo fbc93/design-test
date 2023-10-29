@@ -361,14 +361,126 @@ export const RadioBtnItem = styled.label`
 `;
 
 /* Range Input */
+export const FireFoxTest = styled.div<{ $sadBg: string }>`
+  width: 100%;
+  padding: 2.4rem 4rem;
+
+  /* Common */
+  input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+  }
+  input[type="range"]:active {
+    cursor: grabbing;
+  }
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+  }
+  input[type="range"],
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  /* Thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    background-image: ${(props) =>
+      `url("/images/test/range_emotion_sad_${props.$sadBg}.webp")`};
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: var(--blue-01);
+    bottom: 50%;
+    transform: translateY(-45%);
+    position: relative;
+    z-index: 1;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    background-image: ${(props) =>
+      `url("/images/test/range_emotion_sad_${props.$sadBg}.webp")`};
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: none;
+  }
+
+  /* Track */
+  input[type="range"]::-moz-range-track {
+    background-color: var(--gray-05);
+    height: 4px;
+    border-radius: 4px;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: var(--gray-05);
+    height: 4px;
+    border-radius: 4px;
+  }
+
+  /* Progress */
+  input[type="range"]::-moz-range-progress {
+    background-color: var(--blue-01);
+    height: 4px;
+    border-radius: 4px;
+    border: none;
+  }
+
+  .container {
+    position: relative;
+    height: 1.8rem;
+    display: flex;
+
+    .thumb {
+      aspect-ratio: 4/5;
+      width: 5.5rem;
+      position: absolute;
+      left: calc(50% - 6rem);
+      bottom: 60px; //50px
+      opacity: 0;
+      background-image: url("/images/test/indicator_sad_bg.webp");
+      background-size: contain;
+      background-position: left center;
+      background-repeat: no-repeat;
+      color: var(--white);
+      text-align: center;
+      line-height: 5.5rem;
+      font-size: 1.8rem;
+      z-index: 0;
+      transition: bottom 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .progress-bg {
+      position: absolute;
+      width: calc(50% - 5rem);
+      top: 7px;
+      height: 4px;
+      background: var(--blue-01);
+      border-radius: 4px;
+    }
+  }
+
+  input[type="range"]:active + .thumb {
+    opacity: 1;
+    bottom: 50px;
+  }
+`;
+
 export const RangeInputContainer = styled.div`
   padding: 2.4rem 4rem;
   width: 100%;
-  background-color: beige;
   position: relative;
 `;
 
-export const RangeSlider = styled.div`
+export const RangeSlider = styled.div<{ $sadBg: string }>`
   position: relative;
   display: flex;
   user-select: none;
@@ -400,10 +512,9 @@ export const SliderThumb = styled.div`
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
-
   position: absolute;
   top: 2px;
-  left: 50%;
+  left: calc(50% - 3.2rem);
   transform: translate(-50%, -50%);
   background-color: var(--blue-01);
   z-index: 200;
@@ -417,31 +528,27 @@ export const Tooltip = styled.div`
   transform: translateX(-50%);
 
   .tooltip-img {
+    aspect-ratio: 4/5;
     width: 65px;
-    height: 75px;
     position: absolute;
-    top: -35px;
+    top: -45px;
     left: -17px;
     background-image: url("/images/test/indicator_sad_bg.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
+  }
 
-    & > div {
-      width: 2.8rem;
-      height: 1.4rem;
-      position: absolute;
-      left: 49%;
-      top: 40%;
-      transform: translate(-50%, -50%);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center top;
-    }
+  .low {
+    background-image: url("/images/test/emotion_not_sad_low.webp");
+  }
 
-    .not-sad {
-      background-image: url("/images/test/emotion_not_sad.webp");
-    }
+  .middle {
+    background-image: url("/images/test/emotion_not_sad_middle.webp");
+  }
+
+  .high {
+    background-image: url("/images/test/emotion_not_sad_high.webp");
   }
 
   .tooltip-value {
@@ -463,7 +570,7 @@ export const SliderProgress = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: calc(50% - 3.2rem);
   height: 4px;
   background-color: var(--blue-01);
   border-radius: 4px;
@@ -473,7 +580,7 @@ export const RangeTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   width: 100%;
   font-size: 1.6rem;
   line-height: 2.4rem;
