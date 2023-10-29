@@ -322,7 +322,7 @@ export const QuestionTitle = styled.legend`
   letter-spacing: 0.374px;
   text-align: center;
   display: inline-block;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.4rem;
 `;
 
 export const RadioBtnItem = styled.label`
@@ -361,7 +361,7 @@ export const RadioBtnItem = styled.label`
 `;
 
 /* Range Input */
-export const FireFoxTest = styled.div<{ $sadBg: string }>`
+export const FireFoxTest = styled.div<{ $sadBg: string; $bgNumber: number }>`
   width: 100%;
   padding: 2.4rem 4rem;
 
@@ -385,16 +385,10 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
 
   /* Thumb */
   input[type="range"]::-webkit-slider-thumb {
-    background-image: ${(props) =>
-      `url("/images/test/range_emotion_sad_${props.$sadBg}.webp")`};
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
-    width: 6.5rem;
-    height: 6.5rem;
+    background-image: url("/images/test/num_opt_sprites.webp");
+    width: 4.8rem;
+    height: 4.8rem;
     border-radius: 50%;
-    background-color: var(--blue-01);
     bottom: 50%;
     transform: translateY(-45%);
     position: relative;
@@ -402,16 +396,105 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
   }
 
   input[type="range"]::-moz-range-thumb {
-    background-image: ${(props) =>
-      `url("/images/test/range_emotion_sad_${props.$sadBg}.webp")`};
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 0 0.8rem rgba(63, 135, 211, 0.2);
-    width: 6.5rem;
-    height: 6.5rem;
+    background-image: url("/images/test/num_opt_sprites.webp");
+    width: 4.8rem;
+    height: 4.8rem;
     border-radius: 50%;
+    position: relative;
+    z-index: 300;
     border: none;
+  }
+
+  .num-1,
+  .num-2,
+  .num-3,
+  .num-4 {
+    .thumb {
+      background-image: url("/images/test/num_1_emotion_indicator.webp");
+    }
+  }
+  .num-1 input[type="range"]::-moz-range-thumb {
+    background-position: -10px -10px;
+  }
+  .num-1 input[type="range"]::-webkit-slider-thumb {
+    background-position: -10px -10px;
+  }
+
+  .num-2 input[type="range"]::-moz-range-thumb {
+    background-position: -78px -10px;
+  }
+  .num-2 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -78px -10px;
+  }
+
+  .num-3 input[type="range"]::-moz-range-thumb {
+    background-position: -10px -78px;
+  }
+  .num-3 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -10px -78px;
+  }
+
+  .num-4 input[type="range"]::-moz-range-thumb {
+    background-position: -78px -78px;
+  }
+  .num-4 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -78px -78px;
+  }
+
+  .num-5,
+  .num-6,
+  .num-7 {
+    .thumb {
+      background-image: url("/images/test/num_2_emotion_indicator.webp");
+    }
+  }
+  .num-5 input[type="range"]::-moz-range-thumb {
+    background-position: -146px -10px;
+  }
+  .num-5 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -146px -10px;
+  }
+
+  .num-6 > input[type="range"]::-moz-range-thumb {
+    background-position: -146px -78px;
+  }
+  .num-6 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -146px -78px;
+  }
+
+  .num-7 > input[type="range"]::-moz-range-thumb {
+    background-position: -10px -146px;
+  }
+  .num-7 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -10px -146px;
+  }
+
+  .num-8,
+  .num-9,
+  .num-10 {
+    .thumb {
+      background-image: url("/images/test/num_3_emotion_indicator.webp");
+    }
+  }
+  .num-8 > input[type="range"]::-moz-range-thumb {
+    background-position: -78px -146px;
+  }
+  .num-8 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -78px -146px;
+  }
+
+  .num-9 > input[type="range"]::-moz-range-thumb {
+    background-position: -146px -146px;
+  }
+  .num-9 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -146px -146px;
+  }
+
+  .num-10 > input[type="range"]::-moz-range-thumb {
+    background-position: -214px -10px;
+  }
+  .num-10 > input[type="range"]::-webkit-slider-thumb {
+    background-position: -214px -10px;
   }
 
   /* Track */
@@ -444,9 +527,8 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
       width: 5.5rem;
       position: absolute;
       left: calc(50% - 6rem);
-      bottom: 70px; //50px
+      bottom: 50px; //50px
       opacity: 0;
-      background-image: url("/images/test/indicator_sad_bg.webp");
       background-size: contain;
       background-position: left center;
       background-repeat: no-repeat;
@@ -460,17 +542,21 @@ export const FireFoxTest = styled.div<{ $sadBg: string }>`
 
     .progress-bg {
       position: absolute;
-      width: calc(50% - 5rem);
+      width: calc(50% - 3.2rem);
       top: 7px;
       height: 4px;
       background: var(--blue-01);
       border-radius: 4px;
     }
+
+    .progress-bg.firefox {
+      display: none;
+    }
   }
 
   input[type="range"]:active + .thumb {
     opacity: 1;
-    bottom: 60px;
+    bottom: 45px;
   }
 `;
 
@@ -580,7 +666,7 @@ export const RangeTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 1rem;
   width: 100%;
   font-size: 1.6rem;
   line-height: 2.4rem;
