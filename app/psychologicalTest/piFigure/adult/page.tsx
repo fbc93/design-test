@@ -6,8 +6,13 @@ import RadioBtnGroup from "../student/components/radioBtnGroup";
 import TestProgressbar from "../student/components/testProgressbar"
 import SituationTextGroup from "./components/situationTextGroup";
 import * as S from "../student/styles/student";
+import { FieldValues, useForm } from "react-hook-form";
 
 export default function AdultTest() {
+  const { register, handleSubmit } = useForm<FieldValues>({
+    defaultValues: {},
+  });
+
   const { basic, biss } = adultQuestions[0];
   let [answersLength, setAnswersLength] = useState(0);
   const [sadBg, setSadBg] = useState('middle');
@@ -22,6 +27,11 @@ export default function AdultTest() {
     }
   }, [])
 
+  const onSubmitEvent = () => {
+    console.log('submit');
+    scrollTo(0, 0);
+  }
+
   return (
     <main>
       <TestProgressbar
@@ -29,13 +39,14 @@ export default function AdultTest() {
         currentLength={answersLength}
         totalLength={basic.length + biss.length}
       />
-      <S.TestQuestions>
+      <S.TestQuestions onSubmit={handleSubmit(onSubmitEvent)}>
         {basic.map((q, idx) => (
 
           <S.TestQuestion
             key={idx}
             ref={el => ref.current[idx] = el}
             className={idx != 0 ? "inactive" : ""}>
+
             {/* 문제 텍스트 group */}
             <QuestionTextGroup questionText={q.question} />
 
@@ -43,6 +54,8 @@ export default function AdultTest() {
             <RadioBtnGroup
               questionNumber={q.number}
               onClick={(el: any) => {
+
+                //UI : radio 버튼 값 변경시 다음 문항으로 스크롤 이동
                 const targetHeight = ref.current[idx]?.offsetHeight as number;
                 window.scrollBy(0, targetHeight);
                 ref.current[idx]?.classList.remove('inactive');
@@ -51,8 +64,6 @@ export default function AdultTest() {
                 if (el.target.checked && !ref.current[idx]?.classList.contains('pass')) {
                   setAnswersLength(++answersLength);
                 }
-
-                ref.current[idx]?.classList.add('pass');
               }} />
 
             {/* Divider */}
@@ -89,69 +100,26 @@ export default function AdultTest() {
                       el.target.nextSibling.nextSibling.style.cssText = `width: calc(${percent}% - 3.2rem)`;
 
                       //UI image
-                      if (el.target.value >= 1 && el.target.value <= 3) {
-                        setSadBg('low');
-
-                      } else if (el.target.value >= 4 && el.target.value <= 7) {
-                        setSadBg('middle');
-
-                      } else if (el.target.value >= 8 && el.target.value <= 10) {
-                        setSadBg('high');
-                      }
-
+                      el.target.value >= 1 && el.target.value <= 3 ? setSadBg('low') :
+                        el.target.value >= 4 && el.target.value <= 7 ? setSadBg('middle') :
+                          el.target.value >= 8 && el.target.value <= 10 ? setSadBg('high') : ''
 
                       //UI
                       if (el.target.value == 1) {
+                        el.target.parentElement.className = 'container';
+                        el.target.parentElement.classList.add(`num-${el.target.value}`);
                         el.target.nextSibling.style.cssText = `left: calc(0% - 0.5rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-1');
 
-                      } else if (el.target.value == 2) {
+                      } else if (el.target.value >= 2 && el.target.value <= 7) {
+                        el.target.parentElement.className = 'container';
+                        el.target.parentElement.classList.add(`num-${el.target.value}`);
                         el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-2');
 
-                      } else if (el.target.value == 3) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
+                      } else if (el.target.value >= 8 && el.target.value <= 10) {
                         el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-3');
-
-                      } else if (el.target.value == 4) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-4');
-
-                      } else if (el.target.value == 5) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-5');
-
-                      } else if (el.target.value == 6) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-6');
-
-                      } else if (el.target.value == 7) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 6rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-7');
-
-                      } else if (el.target.value == 8) {
+                        el.target.parentElement.classList.add(`num-${el.target.value}`);
                         el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-8');
-
-                      } else if (el.target.value == 9) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-9');
-
-                      } else if (el.target.value == 10) {
-                        el.target.nextSibling.style.cssText = `left: calc(${percent}% - 5.5rem);`;
-                        el.target.parentElement.className = 'container';
-                        el.target.parentElement.classList.add('num-10');
                       }
-
                     }}
                   />
 
@@ -299,27 +267,27 @@ export default function AdultTest() {
         {/* 버튼 */}
         <div>
           <button onClick={(el) => {
-            el.preventDefault();
+            //el.preventDefault();
             scrollTo(0, 0);
 
           }}>이전</button>
 
-          <button onClick={(el) => {
-            el.preventDefault();
-            scrollTo(0, 0);
+          <button type="submit" onClick={(el) => {
+            //el.preventDefault();
 
-            const offsetArr: any = [];
 
-            ref.current.forEach(function (item) {
-              if (!item?.classList.contains('pass')) {
-                offsetArr.push(item?.offsetTop);
-              }
-            });
+            // const offsetArr: any = [];
 
-            // 체크하지 않은 항목으로 스크롤하기
-            scrollTo(0, Math.min(...offsetArr) - 337);
+            // ref.current.forEach(function (item) {
+            //   if (!item?.classList.contains('pass')) {
+            //     offsetArr.push(item?.offsetTop);
+            //   }
+            // });
 
-          }}>다음</button>
+            // // 체크하지 않은 항목으로 스크롤하기
+            // scrollTo(0, Math.min(...offsetArr) - 337);
+
+          }}>다음!</button>
         </div>
       </S.TestQuestions>
     </main>

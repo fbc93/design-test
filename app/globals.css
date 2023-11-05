@@ -163,14 +163,14 @@ a {
 input {
   margin: 0;
 }
-input[type="radio"] {
+/* input[type="radio"] {
   display: block;
   width: 3rem;
   height: 3rem;
   display: block;
   opacity: 0;
   padding: 0;
-}
+} */
 
 *,
 *::before,

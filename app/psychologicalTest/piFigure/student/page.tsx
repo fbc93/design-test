@@ -1,6 +1,6 @@
 'use client'
 import { questions } from "@/app/data/mockup";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import QuestionTextGroup from "./components/questionTextGroup";
 import RadioBtnGroup from "./components/radioBtnGroup";
 import TestProgressbar from "./components/testProgressbar";
